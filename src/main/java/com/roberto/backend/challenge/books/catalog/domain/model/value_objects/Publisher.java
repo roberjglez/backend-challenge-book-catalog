@@ -5,6 +5,6 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class Author {
+public class Publisher {
   private String value;
 }
