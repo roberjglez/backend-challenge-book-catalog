@@ -1,6 +1,11 @@
 package com.roberto.backend.challenge.books.catalog.infrastructure.adapter.repository.model;
 
 import com.roberto.backend.challenge.books.catalog.domain.model.Book;
+import com.roberto.backend.challenge.books.catalog.domain.model.value_objects.Author;
+import com.roberto.backend.challenge.books.catalog.domain.model.value_objects.Genre;
+import com.roberto.backend.challenge.books.catalog.domain.model.value_objects.PublishedOn;
+import com.roberto.backend.challenge.books.catalog.domain.model.value_objects.Publisher;
+import com.roberto.backend.challenge.books.catalog.domain.model.value_objects.Title;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -8,8 +13,10 @@ import jakarta.persistence.Table;
 import java.time.LocalDate;
 import java.util.UUID;
 import lombok.Builder;
+import lombok.Getter;
 
 @Builder
+@Getter
 @Entity
 @Table(name = "book")
 public class JpaBook {
@@ -42,6 +49,17 @@ public class JpaBook {
         .genre(book.genre().getValue())
         .publisher(book.publisher().getValue())
         .publishedOn(book.publishedOn().getValue())
+        .build();
+  }
+
+  public Book toDomain() {
+    return Book.builder()
+        .id(new com.roberto.backend.challenge.books.catalog.domain.model.value_objects.Id(id))
+        .title(new Title(title))
+        .author(new Author(author))
+        .genre(new Genre(genre))
+        .publisher(new Publisher(publisher))
+        .publishedOn(new PublishedOn(publishedOn))
         .build();
   }
 }

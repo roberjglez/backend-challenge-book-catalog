@@ -41,4 +41,31 @@ public class JpaBookTest {
             bookDomain.publishedOn().getValue()
         );
   }
+
+  @Test
+  public void shouldMapJpaBookToDomain() {
+
+    final var faker = new Faker();
+    final var jpaBook = JpaBook.builder()
+        .id(UUID.randomUUID())
+        .title(faker.book().title())
+        .author(faker.book().author())
+        .genre(faker.book().genre())
+        .publisher(faker.book().publisher())
+        .publishedOn(LocalDate.now().minusMonths(1))
+        .build();
+
+    final Book bookDomain = jpaBook.toDomain();
+
+    Assertions.assertThat(bookDomain)
+        .extracting("id.value", "title.value", "author.value", "genre.value", "publisher.value", "publishedOn.value")
+        .containsExactly(
+            jpaBook.getId(),
+            jpaBook.getTitle(),
+            jpaBook.getAuthor(),
+            jpaBook.getGenre(),
+            jpaBook.getPublisher(),
+            jpaBook.getPublishedOn()
+        );
+  }
 }
