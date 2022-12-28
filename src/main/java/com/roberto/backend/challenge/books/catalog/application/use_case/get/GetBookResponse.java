@@ -17,12 +17,12 @@ public record GetBookResponse (
 
   public static GetBookResponse from(final Book book) {
     return GetBookResponse.builder()
-        .id(book.getId().getValue())
-        .title(book.getTitle().getValue())
-        .author(book.getAuthor().getValue())
-        .genre(book.getGenre().getValue())
-        .publisher(book.getPublisher().getValue())
-        .publishedOn(book.getPublishedOn().getValue())
+        .id(book.getId().value())
+        .title(book.getTitle().value())
+        .author(book.getAuthor().value())
+        .genre(book.getGenre().value())
+        .publisher(book.getPublisher().value())
+        .publishedOn(book.getPublishedOn().value())
         .build();
   }
 }

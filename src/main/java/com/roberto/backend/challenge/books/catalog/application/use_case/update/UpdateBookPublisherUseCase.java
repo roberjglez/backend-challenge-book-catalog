@@ -24,7 +24,7 @@ public class UpdateBookPublisherUseCase {
     final Book book = bookRepository.findById(bookId)
         .orElseThrow(() -> new BookNotFoundException(bookId));
 
-    if (book.getPublishedOn().getValue().isBefore(MAX_DATE_TO_UPDATE)) {
+    if (book.getPublishedOn().value().isBefore(MAX_DATE_TO_UPDATE)) {
       throw new PublisherUpdateNotAllowedException(bookId);
     }
 

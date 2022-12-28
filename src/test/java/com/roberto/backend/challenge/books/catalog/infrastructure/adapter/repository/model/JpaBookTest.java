@@ -33,12 +33,12 @@ public class JpaBookTest {
     Assertions.assertThat(jpaBook)
         .extracting("id", "title", "author", "genre", "publisher", "publishedOn")
         .containsExactly(
-            bookDomain.getId().getValue(),
-            bookDomain.getTitle().getValue(),
-            bookDomain.getAuthor().getValue(),
-            bookDomain.getGenre().getValue(),
-            bookDomain.getPublisher().getValue(),
-            bookDomain.getPublishedOn().getValue()
+            bookDomain.getId().value(),
+            bookDomain.getTitle().value(),
+            bookDomain.getAuthor().value(),
+            bookDomain.getGenre().value(),
+            bookDomain.getPublisher().value(),
+            bookDomain.getPublishedOn().value()
         );
   }
 

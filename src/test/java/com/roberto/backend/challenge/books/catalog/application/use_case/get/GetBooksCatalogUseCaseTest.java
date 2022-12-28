@@ -63,20 +63,20 @@ public class GetBooksCatalogUseCaseTest {
         .extracting("id", "title", "author", "genre", "publisher", "publishedOn")
         .containsExactly(
             Assertions.tuple(
-                book1.getId().getValue(),
-                book1.getTitle().getValue(),
-                book1.getAuthor().getValue(),
-                book1.getGenre().getValue(),
-                book1.getPublisher().getValue(),
-                book1.getPublishedOn().getValue()
+                book1.getId().value(),
+                book1.getTitle().value(),
+                book1.getAuthor().value(),
+                book1.getGenre().value(),
+                book1.getPublisher().value(),
+                book1.getPublishedOn().value()
             ),
             Assertions.tuple(
-                book2.getId().getValue(),
-                book2.getTitle().getValue(),
-                book2.getAuthor().getValue(),
-                book2.getGenre().getValue(),
-                book2.getPublisher().getValue(),
-                book2.getPublishedOn().getValue()
+                book2.getId().value(),
+                book2.getTitle().value(),
+                book2.getAuthor().value(),
+                book2.getGenre().value(),
+                book2.getPublisher().value(),
+                book2.getPublishedOn().value()
             )
         );
 

@@ -63,7 +63,7 @@ public class UpdateBookPublisherUseCaseTest {
     Mockito.verify(bookRepository).save(captor.capture());
 
     final Book captorBook = captor.getValue();
-    Assertions.assertThat(captorBook.getPublisher().getValue()).isEqualTo(updateBookPublisherCommand.publisher());
+    Assertions.assertThat(captorBook.getPublisher().value()).isEqualTo(updateBookPublisherCommand.publisher());
 
     Mockito.verify(bookRepository).findById(updateBookPublisherCommand.bookId());
   }
