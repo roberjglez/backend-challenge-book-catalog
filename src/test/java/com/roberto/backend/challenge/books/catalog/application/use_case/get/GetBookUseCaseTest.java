@@ -57,12 +57,12 @@ public class GetBookUseCaseTest {
     Assertions.assertThat(response)
         .extracting("id", "title", "author", "genre", "publisher", "publishedOn")
         .containsExactly(
-            book.id().getValue(),
-            book.title().getValue(),
-            book.author().getValue(),
-            book.genre().getValue(),
-            book.publisher().getValue(),
-            book.publishedOn().getValue()
+            book.getId().getValue(),
+            book.getTitle().getValue(),
+            book.getAuthor().getValue(),
+            book.getGenre().getValue(),
+            book.getPublisher().getValue(),
+            book.getPublishedOn().getValue()
         );
 
     Mockito.verify(bookRepository).findById(getBookQuery.id());

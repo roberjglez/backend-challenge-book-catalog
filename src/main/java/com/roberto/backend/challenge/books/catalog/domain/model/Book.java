@@ -7,13 +7,20 @@ import com.roberto.backend.challenge.books.catalog.domain.model.value_objects.Pu
 import com.roberto.backend.challenge.books.catalog.domain.model.value_objects.Title;
 import com.roberto.backend.challenge.books.catalog.domain.model.value_objects.PublishedOn;
 import lombok.Builder;
+import lombok.Getter;
 
 @Builder
-public record Book (
-    Id id,
-    Title title,
-    Author author,
-    Genre genre,
-    Publisher publisher,
-    PublishedOn publishedOn) {
+@Getter
+public class Book {
+
+  private Id id;
+  private Title title;
+  private Author author;
+  private Genre genre;
+  private Publisher publisher;
+  private PublishedOn publishedOn;
+
+  public void updatePublisher(final Publisher newPublisher) {
+    this.publisher = newPublisher;
+  }
 }
