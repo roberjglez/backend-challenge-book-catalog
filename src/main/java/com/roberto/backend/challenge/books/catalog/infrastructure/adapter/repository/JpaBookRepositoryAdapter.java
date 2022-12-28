@@ -3,6 +3,7 @@ package com.roberto.backend.challenge.books.catalog.infrastructure.adapter.repos
 import com.roberto.backend.challenge.books.catalog.domain.model.Book;
 import com.roberto.backend.challenge.books.catalog.domain.port.repository.BookRepository;
 import com.roberto.backend.challenge.books.catalog.infrastructure.adapter.repository.model.JpaBook;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
@@ -23,6 +24,13 @@ public class JpaBookRepositoryAdapter implements BookRepository {
   public Optional<Book> findById(final UUID id) {
     return jpaBookRepository.findById(id)
         .map(JpaBook::toDomain);
+  }
+
+  @Override
+  public List<Book> findAll() {
+    return jpaBookRepository.findAll().stream()
+        .map(JpaBook::toDomain)
+        .toList();
   }
 
   @Override
