@@ -12,11 +12,11 @@ import org.springframework.http.ResponseEntity;
 public class ExceptionsHandlerTest {
 
   @Test
-  public void shouldReturnHttpStatusBadRequestWhenThrownBookAlreadyExistsException() {
+  public void shouldReturnHttpStatusConflictWhenThrownBookAlreadyExistsException() {
     final ResponseEntity<Object> response = ExceptionsHandler.handlerBookAlreadyExistsException(new BookAlreadyExistsException(UUID.randomUUID()));
     Assertions.assertThat(response).isNotNull();
     Assertions.assertThat(response.getBody()).isNotNull();
-    Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+    Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.CONFLICT);
   }
 
   @Test
