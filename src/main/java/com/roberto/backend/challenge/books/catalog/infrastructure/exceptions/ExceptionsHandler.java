@@ -21,7 +21,7 @@ public final class ExceptionsHandler {
         final Map<String, Object> errors = new HashMap<>();
         errors.put("message", e.getMessage());
 
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors);
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(errors);
     }
 
     @ExceptionHandler(value = BookNotFoundException.class)

@@ -29,6 +29,8 @@ public class AddBookController {
         .id(request.id)
         .title(request.title)
         .author(request.author)
+        .genre(request.genre)
+        .publisher(request.publisher)
         .publishedOn(request.publishedOn)
         .build());
 
