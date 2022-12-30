@@ -2,10 +2,10 @@ package com.roberto.backend.challenge.books.catalog.infrastructure.controller;
 
 import com.roberto.backend.challenge.books.catalog.application.use_case.add.AddBookCommand;
 import com.roberto.backend.challenge.books.catalog.application.use_case.add.AddBookUseCase;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.UUID;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

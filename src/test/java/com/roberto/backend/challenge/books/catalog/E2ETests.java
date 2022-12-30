@@ -5,7 +5,7 @@ import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "classpath:e2e_scenarios", plugin = {"pretty", "json:target/cucumber-report.json"})
-public class E2ETestsRunner {
+@CucumberOptions(features = "classpath:e2e-scenarios", plugin = {"pretty", "json:target/cucumber-report.json"})
+public class E2ETests {
 
 }

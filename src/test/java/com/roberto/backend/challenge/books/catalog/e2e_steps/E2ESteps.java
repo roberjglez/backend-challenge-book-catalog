@@ -11,8 +11,6 @@ import cucumber.api.java.en.When;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.UUID;
-import org.apache.hc.client5.http.classic.HttpClient;
-import org.apache.hc.client5.http.impl.classic.HttpClientBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -78,9 +76,6 @@ public class E2ESteps {
         .build();
 
     final RestTemplate restTemplate = new RestTemplate();
-    final HttpClient httpClient = HttpClientBuilder.create().build();
-    final HttpComponentsClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory(httpClient);
-    restTemplate.setRequestFactory(requestFactory);
     restTemplate.setRequestFactory(new HttpComponentsClientHttpRequestFactory());
 
     final HttpHeaders headers = new HttpHeaders();
@@ -126,9 +121,6 @@ public class E2ESteps {
         .build();
 
     final RestTemplate restTemplate = new RestTemplate();
-    final HttpClient httpClient = HttpClientBuilder.create().build();
-    final HttpComponentsClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory(httpClient);
-    restTemplate.setRequestFactory(requestFactory);
     restTemplate.setRequestFactory(new HttpComponentsClientHttpRequestFactory());
 
     final HttpHeaders headers = new HttpHeaders();
